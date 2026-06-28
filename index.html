@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="apple-touch-icon" href="icon.png">
 <title>SF Admin 試験対策 上級版</title>
 <style>
 :root {
@@ -261,7 +260,6 @@ body {
 .mode-btn.m-order .mode-icon { background: #D8EDFF; }
 .mode-btn.m-random .mode-icon { background: #E8F4E8; }
 .mode-btn.m-wrong .mode-icon { background: var(--sf-red-light); }
-.mode-btn.m-agent .mode-icon { background: #FFF3D4; }
 .mode-btn.m-pick .mode-icon { background: #EDE5FF; }
 
 /* ===== START INPUT ===== */
@@ -808,14 +806,6 @@ body {
           </div>
         </button>
 
-        <button class="mode-btn m-agent" onclick="startMode('agent')">
-          <div class="mode-icon">🤖</div>
-          <div class="mode-info">
-            <div class="mode-name">Agentforce集中</div>
-            <div class="mode-desc">Agentforceカテゴリのみ出題（30問）</div>
-          </div>
-        </button>
-
         <button class="mode-btn m-pick" onclick="startMode('pick')">
           <div class="mode-icon">✅</div>
           <div class="mode-info">
@@ -1053,11 +1043,7 @@ function startMode(mode) {
     launchQuiz(shuffle(qs));
     return;
   }
-  if (mode === 'agent') {
-    var qs = QUESTIONS.filter(function(q) { return q.category === 'Agentforce'; });
-    launchQuiz(shuffle(qs));
-    return;
-  }
+
 }
 
 function launchOrder() {
